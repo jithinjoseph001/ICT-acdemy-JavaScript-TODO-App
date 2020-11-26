@@ -1,0 +1,85 @@
+<html>
+    <head>
+    <title>User Login</title>
+
+    <script type="text/javascript">
+
+function validate(callback)
+{
+    var user=document.getElementById('log').value;
+    var pass=document.getElementById('password').value;
+    if((user=="admin")&&(pass=="12345"))
+    {
+        callback();
+        window.alert("Success");
+        
+        
+    }
+    else
+        
+        window.alert("Username or Password Incorrect");
+        
+}
+
+function callback(){
+    Parse.User.validate(log, password, {
+        success: function(user) {
+            window.location.href="/todo.html";          
+
+          
+    }
+}
+    )}
+
+    </script>
+    </head>
+
+<style>
+    #login_div{
+       width: 50em;
+
+        background-color: slateblue;
+        margin: 10em;
+        text-align: center;
+    }
+    
+    #loginbtn {
+        padding: 10px 10px;
+        font-size: 20px;
+        margin-left: 8em;
+
+             }
+    .labelp{
+        padding: 20px;
+        color: rgb(243, 243, 243);
+    }
+    #log{
+        padding: 10px 10px;
+        font-size: 20px;
+    }
+    #password{
+        padding: 10px 10px;
+        font-size: 20px;
+    }
+
+</style>
+
+<body id="body" >
+    
+<div id="login_div">
+    <h3 style="text-align: center;font-size: 30px; color: red;">Admin Login</h3>
+<form  action="todo.html">
+    <p class="labelp">
+       Username: <input type="text" id="log" value=""
+            placeholder="Username ">
+    </p>
+    <p class="labelp">
+        Password: <input type="password" id="password" value=""
+            placeholder="Password">
+    </p>
+    <input  type="submit" value="Login" id="loginbtn" onclick="validate()">
+</form>
+
+</div>   
+    </body>
+</html>
